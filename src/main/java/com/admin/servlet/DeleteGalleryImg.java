@@ -1,0 +1,42 @@
+package com.admin.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.dao.Admindao;
+import com.dao.Eventsdao;
+import com.dao.Gallerydao;
+import com.dao.Userdao;
+import com.db.DBConnection;
+import com.entity.Events;
+import com.entity.User;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+@WebServlet("/delete-image")
+public class DeleteGalleryImg extends HttpServlet{
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		int id=Integer.parseInt(req.getParameter("id"));	
+		HttpSession session=req.getSession();
+		
+		Gallerydao gallerydao=new Gallerydao(DBConnection.getConn());
+		boolean b=gallerydao.deleteGalleryImg(id);	
+		if(b) {
+			session.setAttribute("sucMsg", "Image Deleted Successfully!");
+			resp.sendRedirect("admin/gallery.jsp");
+		}else {
+			session.setAttribute("errorMsg", "Failed to Delete Event!");
+			resp.sendRedirect("admin/gallery.jsp");
+		}
+	
+		
+	}
+	
+}
