@@ -1,201 +1,51 @@
-Alumni Connect
-
-📌 Project Overview
-
-Alumni Connect is a web-based platform designed to bridge the gap between alumni and current students. The system provides various features such as job referrals, alumni verification via document upload, and access restrictions for unverified alumni.
-
-🛠️ Features
-
-✅ Implemented Features:
-
-Job Referral System: Alumni can post job opportunities to help fellow alumni and students.
-
-Alumni Verification: Users can upload verification documents for authentication.
-
-Feature Restrictions: Unverified alumni have limited access (e.g., restricted from posting jobs or uploading images to the gallery).
-
-🚧 Pending Features:
-
-Chat Feature: Not implemented yet but planned for future updates.
-
-💻 Technologies Used
-
-Backend: Java, JSP, Servlets
-
-Frontend: HTML, CSS, JavaScript, Bootstrap
-
-Database: MySQL
-
-📂 Database Schema (Main Tables)
-
-users Table
-
-Column Name
-
-Data Type
-
-Description
-
-user_id
-
-INT (PK)
-
-Unique identifier for users
-
-name
-
-VARCHAR
-
-User's full name
-
-email
-
-VARCHAR
-
-User's email (unique)
-
-password
-
-VARCHAR
-
-Hashed password
-
-role
-
-ENUM
-
-Role (e.g., 'alumni', 'student', 'admin')
-
-verified
-
-BOOLEAN
-
-Status of alumni verification
-
-jobs Table
-
-Column Name
-
-Data Type
-
-Description
-
-job_id
-
-INT (PK)
-
-Unique identifier for job posts
-
-alumni_id
-
-INT (FK)
-
-References users(user_id)
-
-job_title
-
-VARCHAR
-
-Title of the job
-
-company
-
-VARCHAR
-
-Company name
-
-location
-
-VARCHAR
-
-Job location
-
-description
-
-TEXT
-
-Job description
-
-posted_date
-
-DATE
-
-Date of job posting
-
-gallery Table
-
-Column Name
-
-Data Type
-
-Description
-
-image_id
-
-INT (PK)
-
-Unique identifier for gallery images
-
-alumni_id
-
-INT (FK)
-
-References users(user_id)
-
-image_url
-
-VARCHAR
-
-Link to uploaded image
-
-description
-
-TEXT
-
-Description of the image
-
-uploaded_at
-
-TIMESTAMP
-
-Timestamp of upload
-
-🚀 How to Run the Project
-
-Prerequisites
-
-Java Development Kit (JDK)
-
-Apache Tomcat Server
-
-MySQL Database
-
-Steps to Set Up
-
-Clone the repository:
-
-git clone https://github.com/your-repo/alumni-connect.git
-
-Import the project into an IDE (Eclipse/IntelliJ).
-
-Configure the database.properties file with your MySQL credentials.
-
-Run the SQL scripts to create the necessary tables.
-
-Deploy the project on Tomcat.
-
-Access the web app via http://localhost:8080/AlumniConnect.
-
-📌 Future Enhancements
-
-Implement a real-time chat feature for alumni and students.
-
-Add an event management module for alumni networking.
-
-Enhance UI with better UX and mobile responsiveness.
-
-📝 License
-
-This project is open-source and available under the MIT License.
-
-Made with ❤️ by Sunny Gupta
+# Alumni Connect
+
+## 📌 Project Overview
+Alumni Connect is a web-based platform designed to facilitate communication and networking between alumni and current students. It includes job referral features, alumni verification through document uploads, and access control for certain features based on alumni verification status.
+
+## 🚀 Features
+
+### ✅ Implemented Features
+- **User Authentication**: Secure login and registration for alumni, students, and administrators.
+- **Job Referral System**: Alumni can post job opportunities for students and other alumni.
+- **Alumni Verification**: Alumni must upload documents for verification before accessing certain features.
+- **Feature Restrictions**: Unverified alumni cannot upload images to the gallery or post jobs.
+- **Alumni Profile Management**: Alumni can update their profiles with details such as work experience, achievements, and expertise.
+- **Gallery Section**: Alumni can upload and share images from past events and reunions.
+- **Event Management**: Allows administrators to post upcoming alumni meetups and events.
+
+### ❌ Not Yet Implemented
+- **Chat Feature**: A direct communication feature for networking is planned but not yet implemented.
+
+## 🛠️ Technologies Used
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap
+- **Backend**: Java, JSP, Servlet
+- **Database**: MySQL
+
+## 📂 Database Schema
+### Tables
+1. **Users Table**: Stores alumni and student details.
+2. **Gallery Table**: Stores images uploaded by verified alumni.
+3. **Jobs Table**: Stores job postings by verified alumni.
+4. **Events Table**: Stores College Event details.
+5. **Admin Table**: Stores admin details.
+
+## 🔧 Setup Instructions
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/alumni-connect.git
+   ```
+2. Import the database schema into MySQL.
+3. Configure database credentials in the backend files.
+4. Deploy the application on a Tomcat server.
+
+## 📌 Future Enhancements
+- Implement a real-time chat feature.
+- Improve UI/UX for better user experience.
+- Add event management for alumni gatherings.
+
+## 🤝 Contribution
+Feel free to contribute by creating pull requests or suggesting new features!
+
+## 📜 License
+This project is open-source and available under the [MIT License](LICENSE).
